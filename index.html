@@ -2,27 +2,16 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>リダイレクト中...</title>
-</head>
-<body>
-  <p>移動中です。しばらくお待ちください...</p>
   <script>
-    const links = [
+    var links = [
       "https://preaf.jp/pa.do?s=v19509&o=65013&guid=ON",
       "https://preaf.jp/pa.do?s=v19509&o=65007&guid=ON",
       "https://preaf.jp/pa.do?s=v19509&o=65006&guid=ON"
     ];
-
-    const now = new Date();
-    const hour = now.getHours();
-    const minute = now.getMinutes();
-
-    // 30分単位のスロット番号
-    const slot = hour * 2 + (minute >= 30 ? 1 : 0);
-    const index = slot % links.length;
-
-    window.location.href = links[index];
+    var now = new Date();
+    var slot = now.getHours() * 2 + (now.getMinutes() >= 30 ? 1 : 0);
+    window.location.replace(links[slot % links.length]);
   </script>
-</body>
+</head>
+<body></body>
 </html>
